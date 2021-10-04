@@ -52,6 +52,8 @@ class User implements Serializable {
         lastName nullable: false,blank: false
         role nullable: false,blank: false
         pictureURL  unique: true
+        createdOn nullable: true
+        modifiedOn nullable: true
     }
 
     static mapping = {
