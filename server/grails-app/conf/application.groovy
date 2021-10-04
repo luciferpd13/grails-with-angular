@@ -20,7 +20,6 @@ grails.plugin.springsecurity.controllerAnnotations.interceptUrlMap  = [
 
 grails.plugin.springsecurity.filterChain.chainMap = [
 		[pattern: '/api/**', filters:'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter'],
-
 ]
 
 grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'

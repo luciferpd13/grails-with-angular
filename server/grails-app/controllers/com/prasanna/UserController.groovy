@@ -8,6 +8,7 @@ import static org.springframework.http.HttpStatus.OK
 import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY
 import javax.servlet.http.*
 import com.prasanna.*
+import grails.util.GrailsStringUtils;
 
 import grails.gorm.transactions.ReadOnly
 import grails.gorm.transactions.Transactional
@@ -37,6 +38,20 @@ class UserController {
         userSession.setAttribute("coachingCategory", user.coachingCategory);
         respond user
     }
+
+    def findUserByUsername(User user){
+        try {
+            if(GrailsStringUtils.isNotEmpty(user.username)){
+                respond User.findAll("from User as b where b.username = :username", [username: user.username])
+            }else{
+                throw new NullPointerException("Username Not Found");
+            }
+        } catch (ValidationException e) {
+            respond session.errors
+            return
+        }
+    }
+
 
     @Transactional
     def save(User user) {

@@ -33,6 +33,7 @@ class User implements Serializable {
         username = username?.trim().toLowerCase()
         coachingCategory = role.equals(UserRole.CLIENT) ? "CLIENT" : coachingCategory
         createdOn = new Date()
+        modifiedOn = new Date()
     }
 
     def beforeUpdate() {
