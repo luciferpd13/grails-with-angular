@@ -25,10 +25,11 @@ sc@sc.com   |  qwerty   |  COACH   |  YOGA
 pd@pd.com  |   qwerty  |   CLIENT  |  CLIENT
 jb@jb.com   |  qwerty    | CLIENT  |  CLIENT
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| First Header  | Second Header | First Header  | Second Header | 
+| ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+
 
 Please use above credentials to access the applcation.
 
