@@ -4,9 +4,9 @@ The Project Demonstrates Grails Connection With Angular With Auth Token Based AP
 To Use the App
 
 1. You neee to make sure that you have installed Grails 4.0.12 Along with Java 1.8 SDK on your Machine.
-2. Go inside #client folder and Perfrom `npm install`
+2. Go inside # client folder and Perfrom `npm install`
 3. Since we are using Grails as a backend and Angular as a frontend both the services should run on seprate terminals
-4. For Grails navigate inside #server folder and run <br/>
+4. For Grails navigate inside # server folder and run <br/>
     `grails`<br/>
     Inside Grails Console Execute <br/>
     `clean`<br/>
