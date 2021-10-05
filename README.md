@@ -19,11 +19,11 @@ And there we go. Application is ready to use.
 The application is protected to API Leakeage that means every API is evaulated based on Auth token. Therefore I have inserted some data to 
 access the application.
 
-User          Password   Role      SESSION_CATEGORY
-cm@cm.com     qwerty     COACH     BOXER
-sc@sc.com     qwerty     COACH     YOGA
-pd@pd.com     qwerty     CLIENT    CLIENT
-jb@jb.com     qwerty     CLIENT    CLIENT
+User        |  Password  | Role   |   SESSION_CATEGORY
+cm@cm.com   |  qwerty  |   COACH   |  BOXER
+sc@sc.com   |  qwerty   |  COACH   |  YOGA
+pd@pd.com  |   qwerty  |   CLIENT  |  CLIENT
+jb@jb.com   |  qwerty    | CLIENT  |  CLIENT
 
 Please use above credentials to access the applcation.
 
