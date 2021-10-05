@@ -1,0 +1,18 @@
+.analytics-card{
+    margin-left:20px;margin-top :20px; display: inline-block;border-color:#007ed2 !important; padding: 4px 0px 6px 0px;color: #007ed2;width: 165px;
+}
+.card {
+    background-color: #fff;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border: 1px solid #c9c9c9;
+    border-radius: 7px;
+    width: 200px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover{
+    opacity:.5;
+    transform: scale(.98);
+    cursor: pointer;
+}

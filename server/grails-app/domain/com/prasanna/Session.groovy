@@ -15,6 +15,7 @@ class Session {
     String instructorUsername
     String instructorPhone
     String instructorImageURL
+    String offeredTo
     SessionType sessionType
     String sessionLocation
     Date createdOn
@@ -44,5 +45,6 @@ class Session {
         instructorUsername nullable: true
         instructorPhone nullable: true
         instructorImageURL nullable: true
+        offeredTo nullable: false
     }
 }

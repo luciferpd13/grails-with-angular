@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <a routerLink="/client-view/{{sessionCategory}}" *ngIf="user.role == 'CLIENT'" class="left" style="text-decoration: underline; cursor: pointer;">Back /</a>
+            <a routerLink="/coach-view" *ngIf="user.role == 'COACH'" class="left" style="text-decoration: underline; cursor: pointer;">Back /</a>
+            <a class="right" (click)="logout()" style="text-decoration: underline; cursor: pointer;">Logout</a>
+        </div>
+    </div>
+</div>
+<div class="row py-5 px-4">
+    <div class="col-md-5 mx-auto">
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover" id="cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3"><img src="{{session.instructorImageURL}}" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
+                    <div class="media-body mb-5 text-white">
+                        <h4 class="mt-0 mb-0" style="color: #fff;text-shadow: 2px 2px #ff0000;">{{session.instructorName}}</h4>
+                        <p class="small mb-4" style="color: #fff;text-shadow: 2px 2px #ff0000;">{{user.location}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                <p class="badge badge-primary">{{session.sessionCategory}}</p>
+                &nbsp;&nbsp;&nbsp;
+                <p class="badge badge-primary">{{session.sessionCostInNumber}} {{session.sessionCostInCurrency}}</p>
+                &nbsp;&nbsp;&nbsp;
+                <p class="badge badge-primary">{{session.sessionLocation}}</p>
+                &nbsp;&nbsp;&nbsp;
+                <p class="badge badge-primary">Contact : {{session.instructorPhone}}</p>
+            </div>
+            <div class="col-md-12">
+                <div class="right" *ngIf="user.role == 'COACH'">Session offered to <p class="badge badge-primary"> {{session.offeredTo}}</p></div>
+            <div>
+            <div class="px-4 py-3">
+                <h5 class="mb-0">Title</h5>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    <p class="font-italic mb-0">{{session.title}}</p>
+                    <p class="badge badge-primary right">{{session.scheduledTo | date:'medium'}} - {{session.scheduledFrom | date:'medium'}}</p>
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0">Description</h5>
+                </div>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    <p class="mb-0">{{session.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -33,13 +33,7 @@ class SessionController {
     @Transactional
     def save(Session session) {
         HttpSession userSession = request.getSession(false);
-        session.instructorName = userSession.getAttribute("name")
-        session.instructorUsername = userSession.getAttribute("username")
-        session.instructorPhone = userSession.getAttribute("phone")
-        session.instructorImageURL = userSession.getAttribute("pictureURL")
-        print session.instructorName
-        print session.instructorUsername
-        print session.instructorPhone
+
         if (session == null) {
             render status: NOT_FOUND
             return
@@ -51,17 +45,28 @@ class SessionController {
         }
 
         try {
-            if(GrailsStringUtils.isNotEmpty(session.instructorName) && GrailsStringUtils.isNotEmpty(session.instructorUsername) && GrailsStringUtils.isNotEmpty(session.instructorPhone)){
-                sessionService.save(session)
-            }else{
-                throw new NullPointerException("Session Not Found");
-            }
+            sessionService.save(session)
         } catch (ValidationException e) {
             respond session.errors
             return
         }
 
         respond session, [status: CREATED, view:"show"]
+    }
+
+    def findSessionByFilter(Session session){
+        try {
+            if(GrailsStringUtils.isNotEmpty(session.instructorUsername)){
+                respond  Session.findAll("from Session as b where b.instructorUsername = :instructorUsername ORDER BY modifiedOn", [instructorUsername: session.instructorUsername]);
+            }else if(GrailsStringUtils.isNotEmpty(session.sessionCategory) && GrailsStringUtils.isNotEmpty(session.offeredTo)){
+                respond  Session.findAll("from Session as b where b.sessionCategory = :sessionCategory AND b.offeredTo = :offeredTo ORDER BY modifiedOn", [sessionCategory: session.sessionCategory, offeredTo : session.offeredTo]);
+            }else{
+                throw new NullPointerException("Session Object Empty");
+            }
+        } catch (ValidationException e) {
+            respond session.errors
+            return
+        }
     }
 
     @Transactional

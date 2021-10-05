@@ -27,22 +27,13 @@ class UserController {
     }
 
     def show(Long id) {
-        HttpSession userSession = request.getSession();
-        User user = userService.get(id);
-        userSession.setAttribute("username", user.username);
-        userSession.setAttribute("phone", user.phone);
-        userSession.setAttribute("name", user.firstName + " " + user.lastName);
-        userSession.setAttribute("location", user.location);
-        userSession.setAttribute("role", user.role);
-        userSession.setAttribute("pictureURL", user.pictureURL);
-        userSession.setAttribute("coachingCategory", user.coachingCategory);
-        respond user
+        respond userService.get(id);
     }
 
     def findUserByUsername(User user){
         try {
             if(GrailsStringUtils.isNotEmpty(user.username)){
-                respond User.findAll("from User as b where b.username = :username", [username: user.username])
+                respond  User.find("from User as b where b.username = :username", [username: user.username]);
             }else{
                 throw new NullPointerException("Username Not Found");
             }
@@ -51,7 +42,6 @@ class UserController {
             return
         }
     }
-
 
     @Transactional
     def save(User user) {

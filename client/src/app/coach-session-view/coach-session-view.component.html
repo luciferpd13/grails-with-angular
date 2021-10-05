@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Your Sessions</h2>
+            <a routerLink="/coach-home" class="left" style="text-decoration: underline; cursor: pointer;">Home /</a>
+            <a class="right" (click)="logout()" style="text-decoration: underline; cursor: pointer;">Logout</a>
+        </div>
+    </div>
+    <div class="row mt-5"  *ngIf="!isSessionEmpty">
+        <div class="col-md-12">
+            <section class="dark" *ngFor="let item of sessions; let odd = odd; let even = even">
+                <div class="container py-4">
+                    <article class="postcard dark blue" *ngIf="even">
+                        <a class="postcard__img_link pointer" (click)="showThisSession(item)">
+                            <img class="postcard__img" src="{{item.sessionImageURL}}" alt="{{item.sessionCategory}}" />
+                        </a>
+                        <div class="postcard__text">
+                            <h1 class="postcard__title blue"><a class="pointer" (click)="showThisSession(item)">{{item.title}}</a></h1>
+                            <div class="postcard__subtitle small">
+                                <time datetime="2020-05-25 12:00:00">
+                                    <i class="fas fa-calendar-alt mr-2"></i>{{item.scheduledTo | date:'medium'}} - {{item.scheduledFrom | date:'medium'}} By <b>{{item.instructorName}}</b>
+                                </time>
+                            </div>
+                            <div class="postcard__bar"></div>
+                            <div class="postcard__preview-txt">{{item.description}}</div>
+                            <ul class="postcard__tagbox">
+                                <li class="tag__item">{{item.offeredTo}}</li>
+                                <li class="tag__item">{{item.sessionCostInNumber}} {{item.sessionCostInCurrency}}</li>
+                                <li class="tag__item">{{item.instructorPhone}}</li>
+                                <li class="tag__item">{{item.sessionType}}</li>
+                                <li class="tag__item">{{item.sessionLocation}}</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="postcard dark red" *ngIf="odd">
+                        <a class="postcard__img_link pointer" (click)="showThisSession(item)">
+                            <img class="postcard__img" src="{{item.sessionImageURL}}" alt="{{item.sessionCategory}}" />
+                        </a>
+                        <div class="postcard__text">
+                            <h1 class="postcard__title red"><a class="pointer" (click)="showThisSession(item)">{{item.title}}</a></h1>
+                            <div class="postcard__subtitle small">
+                                <time datetime="2020-05-25 12:00:00">
+                                    <i class="fas fa-calendar-alt mr-2"></i>{{item.scheduledTo | date:'medium'}} - {{item.scheduledFrom | date:'medium'}} By <b>{{item.instructorName}}</b>
+                                </time>
+                            </div>
+                            <div class="postcard__bar"></div>
+                            <div class="postcard__preview-txt">{{item.description}}</div>
+                            <ul class="postcard__tagbox">
+                                <li class="tag__item">{{item.offeredTo}}</li>
+                                <li class="tag__item">{{item.sessionCostInNumber}} {{item.sessionCostInCurrency}}</li>
+                                <li class="tag__item">{{item.instructorPhone}}</li>
+                                <li class="tag__item">{{item.sessionType}}</li>
+                                <li class="tag__item">{{item.sessionLocation}}</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="col-md-12 mt-5" *ngIf="isSessionEmpty">
+        <p class="text-center">No Sessions Found</p>
+    </div>
+</div>

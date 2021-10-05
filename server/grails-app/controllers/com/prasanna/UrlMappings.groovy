@@ -7,6 +7,7 @@ class UrlMappings {
         get "/$controller(.$format)?"(action:"index")
         get "/$controller/$id(.$format)?"(action:"show")
         post "/$controller/finduserbyusername(.$format)?"(action:"findUserByUsername")
+        post "/$controller/findsessionbyfilter(.$format)?"(action:"findSessionByFilter")
         post "/$controller(.$format)?"(action:"save")
         post "/$controller?"(action:"save")
         put "/$controller/$id(.$format)?"(action:"update")

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <a class="right" (click)="logout()" style="text-decoration: underline; cursor: pointer;">Logout</a>
+            <br/>
+            <h2 class="text-center">Welcome {{user.firstName}} {{user.lastName}} !</h2>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <article routerLink="/create-session" class="card analytics-card">
+                <div class="text-center">
+                    <h4 class="card-title capital">Create Session</h4>
+                </div>
+            </article>
+            <article routerLink="/coach-view" class="card analytics-card">
+                <div class="text-center">
+                    <h4 class="card-title capital">View Session</h4>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

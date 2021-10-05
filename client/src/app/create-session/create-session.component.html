@@ -1,0 +1,80 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Create Session</h2>
+            <a routerLink="/coach-home" class="left" style="text-decoration: underline; cursor: pointer;">Home /</a>
+            <a class="right" (click)="logout()" style="text-decoration: underline; cursor: pointer;">Logout</a>
+        </div>
+    </div>
+</div>
+<div class="container mt-5" style="border: 1px solid #ccc;">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <form #sessionForm="ngForm" (ngSubmit)="save(session)">
+                    <div class="form-group">
+                        <label for="inputAddress">Title</label>
+                        <input type="text" [(ngModel)]="session.title" class="form-control" name="title" placeholder="Enter Sesion Title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descrition">Descrition</label>
+                        <textarea class="form-control" [(ngModel)]="session.description" name="description" rows="3" placeholder="Enter Session Descrition" required></textarea>
+                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label>Session Charge</label>
+                            <input type="number" [(ngModel)]="session.sessionCostInNumber" name="sessionCostInNumber" class="form-control" placeholder="Enter Session Cost" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Charge Currency</label>
+                            <select id="inputState" [(ngModel)]="session.sessionCostInCurrency" name="sessionCostInCurrency" class="form-control" required>
+                                <option selected>GBP</option>
+                                <option>USD</option>
+                                <option>INR</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Schedule To</label>
+                            <input [(ngModel)]="session.scheduledTo" type="datetime-local" name="scheduledTo" class="form-control" placeholder="To" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Schedule From</label>
+                            <input [(ngModel)]="session.scheduledFrom" type="datetime-local" name="scheduledFrom" class="form-control" placeholder="From" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Session On</label>
+                            <select [(ngModel)]="session.sessionCategory" name="sessionCategory" id="inputState" class="form-control" required>
+                                <option selected>YOGA</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Session Type</label>
+                            <select id="inputState" (change)="setType(session.sessionType)" [(ngModel)]="session.sessionType" name="sessionType" class="form-control" required>
+                                <option value="ONLINE" selected>Online</option>
+                                <option value="INPERSON">In Person</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Session Location</label>
+                            <input type="text" [(ngModel)]="session.sessionLocation" name="sessionLocation" class="form-control" placeholder="Enter Location for your session" required>
+                            <p style="font-size: 12px;">Can use Google Location API</p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="offeredTo">Offer Session</label>
+                            <input type="email" [(ngModel)]="session.offeredTo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" name="offeredTo" placeholder="Enter Username of User to offer" required>    
+                            <p style="font-size: 12px;">Here we can provide autosuggestion according to session category. Currently I am only allowing for 1 user but we can do for multiple user</p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Session Image URL</label>
+                            <input type="text" [(ngModel)]="session.sessionImageURL" name="sessionImageURL" class="form-control" placeholder="Enter Image URL for your session" required>
+                            <p style="font-size: 12px;">Currently I have give URL option for Image. But We can use Amazon S3 Service to upload image file and store url in db</p>
+                        </div>
+                    </div>
+                    <button type="submit" [disabled]="sessionForm.invalid" class="btn btn-primary mb-5 right">Create Session</button>
+                    <br/>
+                    <span></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
