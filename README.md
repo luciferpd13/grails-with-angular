@@ -7,11 +7,11 @@ To Use the App
 2. Go inside client folder and Perfrom `npm install`
 3. Since we are using Grails as a backend and Angular as a frontend both the services should run on seprate terminals
 4. For Grails navigate inside server folder and run <br/>
-    `grails`
-    Inside Grails Console Execute 
-    `clean`
-    `run-app`
-    The grails will run at `http://localhost:8080/`
+    `grails`<br/>
+    Inside Grails Console Execute <br/>
+    `clean`<br/>
+    `run-app`<br/>
+    The grails will run at `http://localhost:8080/`.
 5. For Running Angular, navigate inside client folder and run `ng serve` and then navigate to `http://localhost:4200/`
 
 And there we go. Application is ready to use.
